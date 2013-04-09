@@ -133,7 +133,7 @@ class DX_Lite_Slide {
 	}
 	
 	public function dx_options_submenu_page_callback() {
-		include_once 'dx_lite_slide_options.php';
+		include_once 'dx-lite-slide-options.php';
 	}
 	
     public function dx_enqueue_style_css() {
@@ -142,12 +142,12 @@ class DX_Lite_Slide {
     }
     
     public function dx_enqueue_slider_script() {
-    	wp_enqueue_script( 'dx_slide', plugins_url( '/js/dx_slide.js', __FILE__), array( 'jquery' ) );
+    	wp_enqueue_script( 'dx_slide', plugins_url( '/js/dx-slide.js', __FILE__), array( 'jquery' ) );
     	
     }
     
     public function dx_display_slideshow( $attrs, $cotnent = '' ) {
-    	return include( plugin_dir_path( __FILE__ ) . '/shortcodes/display_slideshow.php' );
+    	return include( plugin_dir_path( __FILE__ ) . '/shortcodes/display-slideshow.php' );
     }
 }
 
