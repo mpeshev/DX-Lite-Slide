@@ -1,9 +1,27 @@
 <?php
-global $wpdb;
-global $post;
-
+// Get slider options
 $dxls_options = get_option('dxls_options');
 
+// Define defaults for user params
+$dxls_slider_user_atts = array(
+	'width' => '100%',
+	'height' => '350px',
+	'position' => 'none'
+);
+
+// Merge with user params
+$args = $dxls_slider_user_atts;
+if( ! empty( $atts ) && is_array( $atts ) ) {
+	$args = wp_parse_args( $atts, $args );
+}
+
+// Disallow any float other than left, right or none
+$default_positions = array( 'left', 'right', 'none' );
+if( ! in_array( $args['position'], $default_positions ) ) {
+	$args['position'] = 'none';
+}
+
+// Query arguments, yeah
 $dxls_slide_args = array(
 	'post_type' => 'dx_slide',
 	'post_status' => 'publish',
@@ -13,6 +31,15 @@ $dxls_slide_args = array(
 );
 
 ob_start();
+?>
+<style type="text/css">
+	#dx-slideshow {
+		width: <?php echo $args['width']; ?>;
+		height: <?php echo $args['height']; ?>;
+		float: <?php echo $args['position']; ?>;
+	}
+</style>
+<?php 
 
 if ( $dxls_options['dxls_slide_status'] == 'enabled' ) :
 
@@ -24,7 +51,7 @@ if ( $dxls_options['dxls_slide_status'] == 'enabled' ) :
 				$dxls_img_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
 			?>
 				<div>
-					<img src="<?php echo $dxls_img_url; ?>" width="100%" height="350" />
+					<img src="<?php echo $dxls_img_url; ?>" width="<?php echo $args['width'] ?>" height="<?php echo $args['height']; ?>" />
 				</div>
 			<?php 
 			endwhile; 	

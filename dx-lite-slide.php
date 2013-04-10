@@ -146,7 +146,7 @@ class DX_Lite_Slide {
     	
     }
     
-    public function dx_display_slideshow( $attrs, $cotnent = '' ) {
+    public function dx_display_slideshow( $atts, $cotnent = '' ) {
     	return include( plugin_dir_path( __FILE__ ) . '/shortcodes/display-slideshow.php' );
     }
 }
