@@ -7,7 +7,8 @@ $dxls_slider_user_atts = array(
 	'width' => '100%',
 	'height' => '350px',
 	'position' => 'none',
-	'category' => ''
+	'category' => '',
+	'order' => 'desc'
 );
 
 // Merge with user params
@@ -23,13 +24,16 @@ if( ! in_array( $args['position'], $default_positions ) ) {
 }
 
 // Query arguments, yeah
+$order = in_array($args['order'], array( 'asc', 'desc' )) ? $args['order'] : 'desc'; 
+
 $dxls_slide_args = array(
 	'post_type' => 'dx_slide',
 	'post_status' => 'publish',
   	'posts_per_page' => -1,
 	'orderby' => 'date', 
-	'order' => 'DESC' 
+	'order' => $order
 );
+
 
 // Fetch from a given slides category
 if( ! empty( $args['category'] ) ) {
