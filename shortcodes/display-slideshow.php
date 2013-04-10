@@ -6,7 +6,8 @@ $dxls_options = get_option('dxls_options');
 $dxls_slider_user_atts = array(
 	'width' => '100%',
 	'height' => '350px',
-	'position' => 'none'
+	'position' => 'none',
+	'category' => ''
 );
 
 // Merge with user params
@@ -29,6 +30,11 @@ $dxls_slide_args = array(
 	'orderby' => 'date', 
 	'order' => 'DESC' 
 );
+
+// Fetch from a given slides category
+if( ! empty( $args['category'] ) ) {
+	$dxls_slide_args['dx_slider'] = $args['category'];
+}
 
 ob_start();
 ?>
