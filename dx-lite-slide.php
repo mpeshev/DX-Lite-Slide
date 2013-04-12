@@ -8,7 +8,8 @@
  * License: GPLv2 or later
  * 
  */
-/*
+
+/**
  * Copyright (C) 2013 DevriX Ltd
 
 	This program is free software; you can redistribute it and/or
