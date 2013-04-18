@@ -1,4 +1,5 @@
-#dx-slideshow {
+.dx-slideshow {
+	display: inline-block;
 	position: relative;
 	width: 100%;
 	max-width: 960px;
@@ -8,7 +9,7 @@
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-#dx-slideshow>div {
+.dx-slideshow > div {
 	position: absolute;
 	top: 10px;
 	left: 10px;

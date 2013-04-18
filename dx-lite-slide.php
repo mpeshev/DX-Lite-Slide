@@ -47,9 +47,10 @@ class DX_Lite_Slide {
 		add_action( 'init', array( $this, 'add_dx_slides_shortcode' ) );
 		add_action( 'admin_init', array( $this, 'add_slider_settings_page' ) );
 		add_action( 'admin_menu', array( $this, 'register_dx_slide_options_page' ) );
+		add_action( 'admin_menu', array( $this, 'register_dx_slide_help_page' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'dx_enqueue_style_css' ) );
+		add_action( 'admin_init', array( $this, 'dx_enqueue_admin_style_css' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'dx_enqueue_slider_script' ) );
-		
 	}
 	
 	/**
@@ -133,8 +134,18 @@ class DX_Lite_Slide {
 		add_submenu_page( 'edit.php?post_type=dx_slide', 'DX Slides Options', 'DX Slides Options', 'edit_themes', 'dx_slides_options', array( &$this, 'dx_options_submenu_page_callback' ) ); 
 	}
 	
+	public function register_dx_slide_help_page() {
+		add_submenu_page( 'edit.php?post_type=dx_slide', 'Help', 'Help', 'edit_themes', 'dx_slides_help', array( &$this, 'dx_help_page_callback' ) );
+	}
+	
+	// Options Page
 	public function dx_options_submenu_page_callback() {
 		include_once 'dx-lite-slide-options.php';
+	}
+	
+	// Help Page
+	public function dx_help_page_callback() {
+		include_once 'dx-lite-slide-help.php';
 	}
 	
     public function dx_enqueue_style_css() {
@@ -142,12 +153,18 @@ class DX_Lite_Slide {
         wp_enqueue_style( 'style.css' );
     }
     
+    /* Register admin stylesheet. */
+    public function dx_enqueue_admin_style_css() {
+    	wp_enqueue_style( 'admin-style.css', plugins_url( '/styles/admin-style.css', __FILE__ ) );
+    	wp_enqueue_style( 'admin-style.css' );
+    }
+    
     public function dx_enqueue_slider_script() {
     	wp_enqueue_script( 'dx_slide', plugins_url( '/js/dx-slide.js', __FILE__), array( 'jquery' ) );
     	
     }
     
-    public function dx_display_slideshow( $atts, $cotnent = '' ) {
+    public function dx_display_slideshow( $atts, $content = '' ) {
     	return include( plugin_dir_path( __FILE__ ) . '/shortcodes/display-slideshow.php' );
     }
 }
