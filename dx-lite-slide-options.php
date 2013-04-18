@@ -57,9 +57,9 @@ if ( isset( $_POST['dxls_slide_options_submit'] ) ) {
 ?>
 
 <form method="post" action="">
-	<label for="width">Slider width</label>
+	<label for="width">Slider width (use metrics too - px, em, %)</label>
 	<input type="text" id="width" name="width" value="<?php if ( ! empty( $dxls_options['width'] ) ) esc_attr_e( $dxls_options['width'] ); ?>" /><br />
-	<label for="height">Slider height</label>
+	<label for="height">Slider height (use metrics too)</label>
 	<input type="text" id="height" name="height" value="<?php if ( ! empty( $dxls_options['height'] ) ) esc_attr_e( $dxls_options['height'] ); ?>" /><br />
 	<label for="order">Slider Order</label>
 	<select id="order" name="order">

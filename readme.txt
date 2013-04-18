@@ -16,7 +16,8 @@ Lite and simple slider for your WordPress project. Works with placing a shortcod
 == Installation ==
 1. Upload `DX-Lite-Slide` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-1. Use `[dx_display_slideshow]` shortcode in your Post/Page or place `<?php echo do_shortcode( '[dx_display_slideshow]' ) ?>` in your templates.
+3. Set some default settings in DX Slides -> DX Slides Options in your admin and enable the use of the plugin
+4. Use `[dx_display_slideshow]` shortcode in your Post/Page or place `<?php echo do_shortcode( '[dx_display_slideshow]' ) ?>` in your templates.
 
 == Frequently Asked Questions ==
 = How to use plugin? =

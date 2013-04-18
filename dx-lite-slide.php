@@ -2,15 +2,15 @@
 /**
  * Plugin Name: DX Lite Slide
  * Description: Lite and simple slider for your WordPress project. Works with placing a shortcode.
- * Author: DevriX
- * Author URI: http://devrix.com/
+ * Author: nofearinc
+ * Author URI: http://devwp.eu/
  * Version: 0.1
  * License: GPLv2 or later
  * 
  */
 
 /**
- * Copyright (C) 2013 DevriX Ltd
+ * Copyright (C) 2013 Mario Peshev
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -35,10 +35,6 @@
  *
  */
 class DX_Lite_Slide {
-	// register CPT for slides
-	// register taxonomy for slides
-	// register shortcode for the display
-	// create admin page for settings (default width/height and shortcode info)
 	
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -81,7 +77,6 @@ class DX_Lite_Slide {
 			'menu_position' => 40, // probably have to change, many plugins use this
 			'supports' => array(
 				'title',
-				'editor',
 				'thumbnail',
 				'custom-fields',
 				'page-attributes',

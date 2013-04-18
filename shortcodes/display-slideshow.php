@@ -29,6 +29,10 @@ if ( ! empty( $dxls_options['order'] ) ) {
 	$dx_order = 'desc';
 }
 
+if( empty( $dxls_options['dxls_slide_status'] ) ) {
+	$dxls_options['dxls_slide_status'] = 'disabled';
+}
+
 // Define defaults for user params
 $dxls_slider_user_atts = array(
 	'width' => $width,
