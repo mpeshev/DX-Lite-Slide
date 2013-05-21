@@ -77,9 +77,8 @@ if ( isset( $_POST['dxls_slide_options_submit'] ) ) {
 		}
 		?>
 	</select>
-	<input type="hidden" id="dx_slide_dir" value="<?php echo plugins_url( '/dx-lite-slide-options.php', __FILE__ ) ?>" />
-		
+	
 	<p class="submit">
-		<input onclick="getValues()" type="submit" name="dxls_slide_options_submit" class="button-primary" value="<?php _e('Save Changes', 'dxls'); ?>" />
+		<input type="submit" name="dxls_slide_options_submit" class="button-primary" value="<?php _e('Save Changes', 'dxls'); ?>" />
 	</p>
 </form>
