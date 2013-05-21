@@ -4,7 +4,7 @@
  * Description: Lite and simple slider for your WordPress project. Works with placing a shortcode.
  * Author: nofearinc
  * Author URI: http://devwp.eu/
- * Version: 0.2
+ * Version: 0.3
  * License: GPLv2 or later
  * 
  */
