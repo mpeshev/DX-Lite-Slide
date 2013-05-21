@@ -46,13 +46,14 @@ if ( isset( $_POST['dxls_slide_status_submit'] ) ) {
 <hr />
 
 <?php
-$dxls_options = get_option('dxls_options');
+$dxls_options = get_option( 'dxls_options' );
 
 if ( isset( $_POST['dxls_slide_options_submit'] ) ) {
 	$dxls_options['width'] = $_POST['width'];
 	$dxls_options['height'] = $_POST['height'];
 	$dxls_options['order'] = $_POST['order'];
-  	update_option('dxls_options', $dxls_options);
+	$dxls_options['interval'] = $_POST['interval'];
+  	update_option( 'dxls_options', $dxls_options );
 }
 ?>
 
@@ -61,6 +62,9 @@ if ( isset( $_POST['dxls_slide_options_submit'] ) ) {
 	<input type="text" id="width" name="width" value="<?php if ( ! empty( $dxls_options['width'] ) ) esc_attr_e( $dxls_options['width'] ); ?>" /><br />
 	<label for="height">Slider height (use metrics too)</label>
 	<input type="text" id="height" name="height" value="<?php if ( ! empty( $dxls_options['height'] ) ) esc_attr_e( $dxls_options['height'] ); ?>" /><br />
+	<label for="interval">Slider Interval (in milliseconds)</label>
+	<input type="text" id="interval" name="interval" value="<?php if ( ! empty( $dxls_options['interval'] ) ) esc_attr_e( $dxls_options['interval'] ) ?>">
+	<span>* Default interval is 4000</span><br />
 	<label for="order">Slider Order</label>
 	<select id="order" name="order">
 		<?php 
@@ -73,8 +77,9 @@ if ( isset( $_POST['dxls_slide_options_submit'] ) ) {
 		}
 		?>
 	</select>
+	<input type="hidden" id="dx_slide_dir" value="<?php echo plugins_url( '/dx-lite-slide-options.php', __FILE__ ) ?>" />
 		
 	<p class="submit">
-		<input type="submit" name="dxls_slide_options_submit" class="button-primary" value="<?php _e('Save Changes', 'dxls'); ?>" />
+		<input onclick="getValues()" type="submit" name="dxls_slide_options_submit" class="button-primary" value="<?php _e('Save Changes', 'dxls'); ?>" />
 	</p>
 </form>

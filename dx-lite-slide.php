@@ -4,7 +4,7 @@
  * Description: Lite and simple slider for your WordPress project. Works with placing a shortcode.
  * Author: nofearinc
  * Author URI: http://devwp.eu/
- * Version: 0.1
+ * Version: 0.2
  * License: GPLv2 or later
  * 
  */
@@ -144,7 +144,7 @@ class DX_Lite_Slide {
 	}
 	
     public function dx_enqueue_style_css() {
-        wp_enqueue_style( 'style.css', plugins_url( '/styles/style.css' , __FILE__ ));
+        wp_enqueue_style( 'style.css', plugins_url( '/styles/style.css' , __FILE__ ) );
         wp_enqueue_style( 'style.css' );
     }
     
@@ -155,7 +155,7 @@ class DX_Lite_Slide {
     }
     
     public function dx_enqueue_slider_script() {
-    	wp_enqueue_script( 'dx_slide', plugins_url( '/js/dx-slide.js', __FILE__), array( 'jquery' ) );
+    	wp_enqueue_script( 'dx_slide', plugins_url( '/js/dx-slide.js', __FILE__ ), array( 'jquery' ) );
     	
     }
     

@@ -7,6 +7,9 @@
 	<p>
 		<strong><em>Important</em></strong>: Currently you can add one Slider per page.
 	</p>
+	<p>
+		Default slider interval is set to <strong>4000 milliseconds</strong>. You can change value from <strong>DX Slides Options</strong>.
+	</p>
 	<p class="dx-question">
 		How to display the DX Slides?
 	</p>

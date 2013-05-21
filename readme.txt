@@ -4,7 +4,7 @@ Donate link: http://devrix.com/
 Tags: slide, slider
 Requires at least: 3.5.0
 Tested up to: 3.5.1
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,3 +30,8 @@ Create few Slides with featured images and add `[dx_display_slideshow]` shortcod
 
 = 0.1 =
 * Initial release
+
+= 0.2 =
+* (21.05.2013)
+Added option to set Slider interval from Slider options
+

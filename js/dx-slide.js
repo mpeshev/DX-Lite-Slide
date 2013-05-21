@@ -1,14 +1,23 @@
-jQuery(document).ready(function($) {
-	if( $('.dx-slideshow img').length > 1 ) {
-		$(".dx-slideshow > div:gt(0)").hide();
+function setSliderInterval( interval ) {
 	
-		setInterval(function() { 
-		  $('.dx-slideshow > div:first')
-		    .fadeOut(1000)
-		    .next()
-		    .fadeIn(1000)
-		    .end()
-		    .appendTo('.dx-slideshow');
-		},  4000);
+	var slideInterval = interval;
+
+	// Check if Slider Interval is number
+	if ( isNaN( slideInterval ) ) {
+		var slideInterval = 4000;
 	}
-});
+	
+	if ( jQuery( '.dx-slideshow img ' ).length > 1 ) {
+		jQuery( '.dx-slideshow > div:gt(0)' ).hide();
+
+		setInterval( function() {
+			jQuery( '.dx-slideshow > div:first' )
+			.fadeOut( 1000 )
+			.next()
+			.fadeIn( 1000 )
+			.end()
+			.appendTo( '.dx-slideshow' );
+		}, slideInterval
+		);
+	}
+}

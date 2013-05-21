@@ -29,17 +29,21 @@ if ( ! empty( $dxls_options['order'] ) ) {
 	$dx_order = 'desc';
 }
 
+if ( ! empty($dxls_options['interval'] ) ) {
+	$dx_interval = '4000';
+}
+
 if( empty( $dxls_options['dxls_slide_status'] ) ) {
 	$dxls_options['dxls_slide_status'] = 'disabled';
 }
 
 // Define defaults for user params
 $dxls_slider_user_atts = array(
-	'width' => $width,
-	'height' => $height,
-	'position' => 'none',
-	'category' => '',
-	'order' => $dx_order
+	'width' 	=> $width,
+	'height' 	=> $height,
+	'position' 	=> 'none',
+	'category' 	=> '',
+	'order' 	=> $dx_order
 );
 
 // Merge with user params
@@ -55,14 +59,12 @@ if( ! in_array( $args['position'], $default_positions ) ) {
 }
 
 // Query arguments, yeah
-//$order = in_array( $args['order'], array( 'asc', 'desc' ) ) ? $args['order'] : 'desc';
-
 $dxls_slide_args = array(
-	'post_type' => 'dx_slide',
-	'post_status' => 'publish',
-  	'posts_per_page' => -1,
-	'orderby' => 'date',
-	'order' => $args['order']
+	'post_type' 		=> 'dx_slide',
+	'post_status'		=> 'publish',
+  	'posts_per_page'	=> -1,
+	'orderby' 			=> 'date',
+	'order' 			=> $args['order']
 );
 
 
@@ -105,7 +107,24 @@ if ( $dxls_options['dxls_slide_status'] == 'enabled' ) :
 	endif;
 	wp_reset_query();
 endif;
+
+
+$slideInterval = '';
+if( ! empty( $dxls_options['interval'] ) ) {
+	$slideInterval = $dxls_options['interval'];
+}
+
+if ( ! $slideInterval == '' || ! empty( $slideInterval ) ) {
+	$interval = $slideInterval;
+} else {
+	$interval = '4000';
+}
 ?>
+
+<script type="text/javascript">
+var interval = <?php echo json_encode( $interval ); ?>;
+setSliderInterval( interval );
+</script>
 
 <?php 
 return ob_get_clean();
