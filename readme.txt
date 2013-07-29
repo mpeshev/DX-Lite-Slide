@@ -37,3 +37,6 @@ Create few Slides with featured images and add `[dx_display_slideshow]` shortcod
 * (21.05.2013)
 Added option to set Slider interval from Slider options
 
+= 0.4 =
+* (29.07.2013)
+Added option to user Slider in Text Widgets using `[dx_widget_display_slideshow]` shortcode.

@@ -8,13 +8,13 @@ $dxls_options = get_option( 'dxls_options' );
 if ( ! empty( $dxls_options['width'] ) ) {
 	$width = $dxls_options['width'];
 } else {
-	$width = '100%';
+	$width = '99%';
 }
 
 if ( ! empty( $dxls_options['height'] ) ) {
 	$height = $dxls_options['height'];
 } else {
-	$height = '350px';
+	$height = '200px';
 }
 
 if ( ! empty( $dxls_options['position'] ) ) {
@@ -77,14 +77,14 @@ ob_start();
 ?>
 
 <style type="text/css">
-	.dx-slideshow {
+	.dx-widget-slideshow {
 		display: inline-block;
 		width: <?php echo $args['width']; ?>;
 		height: <?php echo $args['height']; ?>;
 		float: <?php echo $args['position']; ?>;
 	}
 	
-	.dx-slideshow img.dx-slide-img {
+	.dx-widget-slideshow img.dx-slide-img {
 		width: <?php echo $args['width']; ?>;
 		height: <?php echo $args['height']; ?>;
 	}
@@ -96,7 +96,7 @@ if ( $dxls_options['dxls_slide_status'] == 'enabled' ) :
 	$dxls_slides_list = new WP_Query( $dxls_slide_args );
 
 	if ( $dxls_slides_list->have_posts() ) :
-		echo '<div class="dx-slideshow" style="display: inline-block; float: ' . $args["position"] . '; width: ' . $args["width"] . '; height: ' . $args["height"] . ';">';
+		echo '<div class="dx-widget-slideshow" style="display: inline-block; float: ' . $args["position"] . '; width: ' . $args["width"] . '; height: ' . $args["height"] . ';">';
 			while ($dxls_slides_list->have_posts()) : $dxls_slides_list->the_post();
 				$dxls_img_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
 				echo '<div>';
@@ -123,7 +123,7 @@ if ( ! $slideInterval == '' || ! empty( $slideInterval ) ) {
 
 <script type="text/javascript">
 var interval = <?php echo json_encode( $interval ); ?>;
-setSliderInterval( interval );
+setWidgetSliderInterval( interval );
 </script>
 
 <?php 

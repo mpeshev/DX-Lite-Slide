@@ -37,17 +37,15 @@
 class DX_Lite_Slide {
 	
 	public function __construct() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'init', array( $this, 'register_dx_slides_cpt' ) );
 		add_action( 'init', array( $this, 'register_dx_slides_tax' ) );
 		add_action( 'init', array( $this, 'add_dx_slides_shortcode' ) );
-		add_action( 'admin_init', array( $this, 'add_slider_settings_page' ) );
+		add_action( 'init', array( $this, 'dx_filter_slideshow_widget' ) );
 		add_action( 'admin_menu', array( $this, 'register_dx_slide_options_page' ) );
 		add_action( 'admin_menu', array( $this, 'register_dx_slide_help_page' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'dx_enqueue_style_css' ) );
 		add_action( 'admin_init', array( $this, 'dx_enqueue_admin_style_css' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'dx_enqueue_slider_script' ) );
-		add_action( 'init', array( $this, 'dx_display_slideshow_widget' ) );
 	}
 	
 	/**
@@ -117,15 +115,9 @@ class DX_Lite_Slide {
 	
 	public function add_dx_slides_shortcode() {
 		add_shortcode( 'dx_display_slideshow', array( $this, 'dx_display_slideshow' ) );
+		add_shortcode( 'dx_widget_display_slideshow', array( $this, 'dx_widget_display_slideshow' ) );
 	}
-	
-	
-	public function add_slider_settings_page() {}
-	public function enqueue_scripts() {
 		
-	}
-	
-	// Add by metodiew
 	public function register_dx_slide_options_page() {
 		add_submenu_page( 'edit.php?post_type=dx_slide', 'DX Slides Options', 'DX Slides Options', 'edit_themes', 'dx_slides_options', array( &$this, 'dx_options_submenu_page_callback' ) ); 
 	}
@@ -134,12 +126,12 @@ class DX_Lite_Slide {
 		add_submenu_page( 'edit.php?post_type=dx_slide', 'Help', 'Help', 'edit_themes', 'dx_slides_help', array( &$this, 'dx_help_page_callback' ) );
 	}
 	
-	// Options Page
+	/* Options Page */
 	public function dx_options_submenu_page_callback() {
 		include_once 'dx-lite-slide-options.php';
 	}
 	
-	// Help Page
+	/* Help Page */
 	public function dx_help_page_callback() {
 		include_once 'dx-lite-slide-help.php';
 	}
@@ -160,13 +152,19 @@ class DX_Lite_Slide {
     	
     }
     
+    /* Shortcodes */
     public function dx_display_slideshow( $atts, $content = '' ) {
     	return include( plugin_dir_path( __FILE__ ) . '/shortcodes/display-slideshow.php' );
     }
     
     /* Allows to add widgets in Sidebar */
-    public function dx_display_slideshow_widget() {
+    public function dx_filter_slideshow_widget() {
     	add_filter( 'widget_text', 'do_shortcode' );
+    }
+    
+    /* Widget Slideshow */
+    public function dx_widget_display_slideshow( $atts, $content= '' ) {    	
+    	return include ( plugin_dir_path( __FILE__ ) . '/shortcodes/display-widget-slideshow.php' );
     }
 }
 

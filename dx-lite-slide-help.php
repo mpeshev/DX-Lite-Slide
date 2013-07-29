@@ -18,6 +18,11 @@
 		[dx_display_slideshow]
 		
 		<p>
+			In Text Widget use shortcode:<br />
+			[dx_widget_display_slideshow]
+		</p>
+		
+		<p>
 			You can use <em>do_shortcode</em> function in your WordPress Template files:<br />
 			&lt;&#63;php echo do_shortcode( '[dx_display_slideshow]' ); &#63;&gt;
 		</p>
