@@ -47,6 +47,7 @@ class DX_Lite_Slide {
 		add_action( 'wp_enqueue_scripts', array( $this, 'dx_enqueue_style_css' ) );
 		add_action( 'admin_init', array( $this, 'dx_enqueue_admin_style_css' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'dx_enqueue_slider_script' ) );
+		add_action( 'init', array( $this, 'dx_display_slideshow_widget' ) );
 	}
 	
 	/**
@@ -161,6 +162,11 @@ class DX_Lite_Slide {
     
     public function dx_display_slideshow( $atts, $content = '' ) {
     	return include( plugin_dir_path( __FILE__ ) . '/shortcodes/display-slideshow.php' );
+    }
+    
+    /* Allows to add widgets in Sidebar */
+    public function dx_display_slideshow_widget() {
+    	add_filter( 'widget_text', 'do_shortcode' );
     }
 }
 
