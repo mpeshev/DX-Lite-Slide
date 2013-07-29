@@ -22,7 +22,7 @@ Lite and simple slider for your WordPress project. Works with placing a shortcod
 == Frequently Asked Questions ==
 = How to use plugin? =
 
-Create few Slides with featured images and add `[dx_display_slideshow]` shortcode.
+Create few Slides with featured images and add `[dx_display_slideshow]` shortcode in your Post/Page or `[dx_widget_display_slideshow]` in Text Widget.
 
 == Screenshots ==
 
@@ -39,4 +39,4 @@ Added option to set Slider interval from Slider options
 
 = 0.4 =
 * (29.07.2013)
-Added option to user Slider in Text Widgets using `[dx_widget_display_slideshow]` shortcode.
+Added option to user Slider in Text Widgets using `[dx_widget_display_slideshow]` shortcode
